@@ -43,7 +43,7 @@ namespace PsSandbox
         public void MissionMiniCreationTest()
         {
             //OpenHomePage
-            driver.Navigate().GoToUrl("BaseURL");
+            driver.Navigate().GoToUrl(baseURL);
             //Login
             driver.FindElement(By.Name("login")).Click();
             driver.FindElement(By.Name("login")).Clear();
@@ -53,11 +53,13 @@ namespace PsSandbox
             driver.FindElement(By.Name("password")).SendKeys("66PojexoIEB0");
             driver.FindElement(By.Name("valid_auth")).Click(); // войти
             //ОЖИДАНИЕ!
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //GoToReesterMissions
             driver.Navigate().GoToUrl(baseURL + "/Missions/");
-            
+            //ОЖИДАНИЕ!
+            Thread.Sleep(5000);
+
             //InitNewItemCreation (кнопка "создать новый")
             driver.FindElement(By.Id("ButtonAddNewElem")).Click();
 
