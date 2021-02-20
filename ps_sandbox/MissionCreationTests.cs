@@ -57,13 +57,11 @@ namespace PsSandbox
             Thread.Sleep(5000);
 
             //GoToReesterMissions
-            //driver.Navigate().GoToUrl(baseURL + "/Home/");
             driver.Navigate().GoToUrl(baseURL + "/Missions/");
-            //driver.Navigate().GoToUrl("http://62.152.34.179:8080/Missions"); //нежелательный способ, т.е. URL гарантирвоанно изменится несколкьо раз.
             //ОЖИДАНИЕ!
             Thread.Sleep(5000);
 
-            //InitNewItemCreation (кнопка "создать новый")
+            //InitNewItemCreation (кнопка "Новый")
             driver.FindElement(By.Id("ButtonAddNewElem")).Click();
 
             //ждем кнопку со стрелкой < т.е. разворачиваем картчоку на весь экран (чтобы скрыть с монитора лишние поля с похожими именами)
