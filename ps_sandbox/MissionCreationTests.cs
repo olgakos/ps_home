@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace PsSandbox
 {
     [TestFixture]
-    public class MissionMiniTests
+    public class MissionCreationTests
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -21,7 +21,8 @@ namespace PsSandbox
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            baseURL = "http://62.152.34.179:8080/Auth";
+            //baseURL = "http://62.152.34.179:8080/Auth";
+            baseURL = "http://62.152.34.179:8080/";
             verificationErrors = new StringBuilder();
         }
 
@@ -40,7 +41,7 @@ namespace PsSandbox
         }
 
         [Test]
-        public void MissionMiniCreationTest()
+        public void MissionCreationTest()
         {
             //OpenHomePage
             driver.Navigate().GoToUrl(baseURL);
@@ -51,12 +52,14 @@ namespace PsSandbox
             driver.FindElement(By.Name("password")).Click();
             driver.FindElement(By.Name("password")).Clear();
             driver.FindElement(By.Name("password")).SendKeys("66PojexoIEB0");
-            driver.FindElement(By.Name("valid_auth")).Click(); // войти
+            driver.FindElement(By.Name("valid_auth")).Click(); // клик на "войти"
             //ОЖИДАНИЕ!
             Thread.Sleep(5000);
 
             //GoToReesterMissions
+            //driver.Navigate().GoToUrl(baseURL + "/Home/");
             driver.Navigate().GoToUrl(baseURL + "/Missions/");
+            //driver.Navigate().GoToUrl("http://62.152.34.179:8080/Missions"); //нежелательный способ, т.е. URL гарантирвоанно изменится несколкьо раз.
             //ОЖИДАНИЕ!
             Thread.Sleep(5000);
 
@@ -65,6 +68,9 @@ namespace PsSandbox
 
             //ждем кнопку со стрелкой < т.е. разворачиваем картчоку на весь экран (чтобы скрыть с монитора лишние поля с похожими именами)
             driver.FindElement(By.Id("button_hidden_datatables")).Click();
+
+            //ОЖИДАНИЕ!
+            Thread.Sleep(5000);
 
             //начинаем заполняить обязательные поля:
             driver.FindElement(By.Id("select2-StaffID_NEW_NEW-container")).Click(); //нашли поле "сотрудник"
