@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace PsSandbox
 {
     [TestFixture]
-    public class MissionCreationTests
+    public class MissionKatalon
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -21,7 +21,6 @@ namespace PsSandbox
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            //baseURL = "http://62.152.34.179:8080/Auth";
             baseURL = "http://62.152.34.179:8080/";
             verificationErrors = new StringBuilder();
         }
@@ -41,7 +40,7 @@ namespace PsSandbox
         }
 
         [Test]
-        public void MissionCreationTest()
+        public void Mission1Bad()
         {
             //OpenHomePage
             driver.Navigate().GoToUrl(baseURL);
